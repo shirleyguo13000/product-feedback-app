@@ -1,8 +1,7 @@
 # 📘 Product Feedback API Documentation
 
-Base URL: `https://product-feedback-api.onrender.com`
+Base URL: `https://product-feedback-api-sti4.onrender.com`
 
-> Not deployed to Render yet — see [PRD.md](PRD.md) Section 5. Until then, run the server locally (`npm start` in `server/`) and use `http://localhost:3000` as the base URL instead. Update this line with the real Render URL once deployed, and keep it in sync with `PRD.md` Section 4.
 
 ## Overview
 
@@ -21,7 +20,7 @@ Base URL: `https://product-feedback-api.onrender.com`
 **Example Request URL:**
 
 ```
-GET https://product-feedback-api.onrender.com/get-all-suggestions
+GET https://product-feedback-api-sti4.onrender.com/get-all-suggestions
 ```
 
 **Example Response:**
@@ -62,7 +61,7 @@ Returns an empty array (`[]`) if there are no suggestions with status `Suggestio
 **Example Request URL:**
 
 ```
-GET https://product-feedback-api.onrender.com/get-suggestions-by-category/Bug
+GET https://product-feedback-api-sti4.onrender.com/get-suggestions-by-category/Bug
 ```
 
 **Example Response:**
@@ -91,7 +90,7 @@ GET https://product-feedback-api.onrender.com/get-suggestions-by-category/Bug
 **Example Request URL:**
 
 ```
-POST https://product-feedback-api.onrender.com/add-one-suggestion
+POST https://product-feedback-api-sti4.onrender.com/add-one-suggestion
 ```
 
 **Example Request Body:**

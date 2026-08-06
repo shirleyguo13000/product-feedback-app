@@ -147,9 +147,9 @@ One core entity for this phase: **Suggestion**.
 
 ## 4. API Endpoints
 
-Modeled after the [Countries API Documentation](https://github.com/AnnieCannons/countries-app-instructions/blob/main/version-3/api-documentation.md) format. Base URL is a placeholder pending the Render deployment:
+Modeled after the [Countries API Documentation](https://github.com/AnnieCannons/countries-app-instructions/blob/main/version-3/api-documentation.md) format. Deployed to Render:
 
-**Base URL:** `https://product-feedback-api.onrender.com`
+**Base URL:** `https://product-feedback-api-sti4.onrender.com`
 
 ### Overview
 
@@ -167,7 +167,7 @@ Modeled after the [Countries API Documentation](https://github.com/AnnieCannons/
 
 **Example Request URL:**
 ```
-GET https://product-feedback-api.onrender.com/get-all-suggestions
+GET https://product-feedback-api-sti4.onrender.com/get-all-suggestions
 ```
 
 **Example Response:**
@@ -202,7 +202,7 @@ GET https://product-feedback-api.onrender.com/get-all-suggestions
 
 **Example Request URL:**
 ```
-GET https://product-feedback-api.onrender.com/get-suggestions-by-category/Bug
+GET https://product-feedback-api-sti4.onrender.com/get-suggestions-by-category/Bug
 ```
 
 **Example Response:**
@@ -227,7 +227,7 @@ GET https://product-feedback-api.onrender.com/get-suggestions-by-category/Bug
 
 **Example Request URL:**
 ```
-POST https://product-feedback-api.onrender.com/add-one-suggestion
+POST https://product-feedback-api-sti4.onrender.com/add-one-suggestion
 ```
 
 **Example Request Body:**
