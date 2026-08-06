@@ -1,3 +1,7 @@
+// Loads server/.env into process.env (DATABASE_URL) for local development.
+// On Render this is a no-op - there's no .env file there, DATABASE_URL is
+// set directly in the service's Environment settings instead.
+import "dotenv/config";
 import express from "express";
 import cors from "cors";
 import suggestionsRouter from "./routes/suggestions.js";
@@ -15,7 +19,9 @@ app.get("/", (req, res) => {
   res.send("Product Feedback API is running.");
 });
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Server listening on port ${PORT}`);
+// Render assigns its own port via process.env.PORT; 3000 is only the local
+// dev fallback.
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+  console.log(`Server is listening on port ${port}`);
 });

@@ -1,7 +1,7 @@
 // Routes for the `suggestions` resource. See PRD.md Section 4 for the
 // full contract each of these endpoints is expected to follow.
 import express from "express";
-import pool from "../db.js";
+import db from "../db.js";
 import { VALID_CATEGORIES } from "../constants.js";
 
 const router = express.Router();
@@ -14,7 +14,7 @@ const SUGGESTION_COLUMNS =
 // the roadmap), ordered by upvotes descending.
 router.get("/get-all-suggestions", async (req, res) => {
   try {
-    const result = await pool.query(
+    const result = await db.query(
       `SELECT ${SUGGESTION_COLUMNS}
        FROM suggestions
        WHERE status = 'Suggestion'
@@ -40,7 +40,7 @@ router.get("/get-suggestions-by-category/:category", async (req, res) => {
   }
 
   try {
-    const result = await pool.query(
+    const result = await db.query(
       `SELECT ${SUGGESTION_COLUMNS}
        FROM suggestions
        WHERE status = 'Suggestion' AND category = $1
@@ -74,7 +74,7 @@ router.post("/add-one-suggestion", async (req, res) => {
   }
 
   try {
-    const result = await pool.query(
+    const result = await db.query(
       `INSERT INTO suggestions (title, description, category)
        VALUES ($1, $2, $3)
        RETURNING ${SUGGESTION_COLUMNS}`,
