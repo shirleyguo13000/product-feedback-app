@@ -1,0 +1,36 @@
+.toolbar {
+  background: var(--color-toolbar);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  position: relative;
+}
+
+.toolbar-count {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 700;
+  color: var(--color-white);
+  white-space: nowrap;
+}
+
+@media (max-width: 767px) {
+  /* Matches the Figma mobile frame, which drops the count from the
+     toolbar entirely - kept in the DOM (not display:none) so it stays
+     announced by screen readers, just not shown visually. */
+  .toolbar-count {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+}

@@ -1,10 +1,159 @@
+/* Self-hosted Jost, matching the Figma Design System frame (weights 400/500/600/700 used
+   across the app: Body Regular, Body SemiBold, headings Bold). */
+@import "@fontsource/jost/400.css";
+@import "@fontsource/jost/500.css";
+@import "@fontsource/jost/600.css";
+@import "@fontsource/jost/700.css";
+
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+  /* Colors — sampled directly from the Figma Design System export and the
+     screenshot assets themselves, not eyeballed, so these are exact. */
+  --color-purple: #ad1fea;
+  --color-purple-hover: #c75af6;
+  --color-blue: #4661e6;
+  --color-blue-hover: #7c91f9;
+  --color-navy: #3a4374;
+  --color-navy-hover: #656ea3;
+  --color-toolbar: #373f68;
+  --color-red: #d73737;
+  --color-red-hover: #e98888;
+  --color-white: #ffffff;
+  --color-lavender: #f2f4ff;
+  --color-bg: #f7f8fd;
+  --color-slate: #647196;
+  --color-orange: #f49f85;
+  --color-lightblue: #62bcfa;
+
+  /* Typography scale — Jost, per the Design System frame */
+  --font-family: "Jost", sans-serif;
+  --h1-size: 1.5rem; /* 24px */
+  --h1-line: 2.1875rem; /* 35px */
+  --h1-spacing: -0.02em;
+  --h2-size: 1.25rem; /* 20px */
+  --h2-line: 1.8125rem; /* 29px */
+  --h2-spacing: -0.0125em;
+  --h3-size: 1.125rem; /* 18px */
+  --h3-line: 1.625rem; /* 26px */
+  --h3-spacing: -0.0125em;
+  --h4-size: 0.875rem; /* 14px */
+  --h4-line: 1.25rem; /* 20px */
+  --h4-spacing: -0.0125em;
+  --body1-size: 1rem; /* 16px */
+  --body1-line: 1.4375rem; /* 23px */
+  --body2-size: 0.9375rem; /* 15px */
+  --body2-line: 1.375rem; /* 22px */
+  --body3-size: 0.8125rem; /* 13px */
+  --body3-line: 1.1875rem; /* 19px */
+
+  /* Layout */
+  --content-max-width: 1110px;
+  --sidebar-width: 255px;
+  --radius: 10px;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: var(--body1-size);
+  line-height: var(--body1-line);
+  color: var(--color-slate);
+  background-color: var(--color-bg);
+}
+
+#root {
+  min-height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+ul {
+  margin: 0;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+input,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Shared pill-shaped button, reused by the Toolbar's "+ Add Feedback",
+   the EmptyState CTA, and both AddFeedback form buttons — colors sampled
+   directly from the Figma Design System buttons section. */
+.pill-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border-radius: 20px;
+  padding: 12px 24px;
+  font-weight: 700;
+  font-size: var(--body2-size);
+  border: none;
+  white-space: nowrap;
+}
+
+.pill-button-purple {
+  background: var(--color-purple);
+  color: var(--color-white);
+}
+
+.pill-button-purple:hover {
+  background: var(--color-purple-hover);
+}
+
+.pill-button-navy {
+  background: var(--color-navy);
+  color: var(--color-white);
+}
+
+.pill-button-navy:hover {
+  background: var(--color-navy-hover);
+}
+
+/* Visually hidden but still readable by screen readers / accessible to a11y
+   tooling (e.g. the "N Suggestions" count that the mobile toolbar hides
+   visually per the design, per PRD.md's mobile toolbar note). */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
